@@ -12,7 +12,7 @@ namespace Doshka.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Doshka.Models.ApplicationDbContext context)
