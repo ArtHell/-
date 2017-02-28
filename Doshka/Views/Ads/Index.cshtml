@@ -22,7 +22,7 @@
                 }
                 
             </h3>
-            <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+            <p class="card-text">@Html.Raw(item.Description)</p>
             <div class="card-footer text-muted">@Html.DisplayFor(modelItem => item.Author.Email)</div>
             
         </div>
