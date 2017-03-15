@@ -11,6 +11,7 @@ namespace Doshka
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-1.10.2.js",
                         "~/Scripts/summernote/summernote.js",
+                        "~/Scripts/Search.js",
                         "~/Scripts/home-index.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

@@ -22,3 +22,65 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#search-field {
+    max-width: 100%;
+    margin: 9px;
+}
+
+.search-filed__wrap {
+    margin: 0 180px 0 180px;
+}
+
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .search-filed__wrap {
+        margin: 0 180px 0 180px;
+    } 
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .search-filed__wrap {
+        margin: 0 180px 0 180px;
+    }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .search-filed__wrap {
+        margin: 0 10px 0 -10px;
+    }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    .search-filed__wrap {
+        margin: 0 10spx 0 -10px;
+    }
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+/**/
+/*==========  Mobile First  ==========*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+/**/
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+/**/
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+/**/
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+/**/
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .search-filed__wrap {
+        margin: 0 300px 0 300px;
+    }
+}
