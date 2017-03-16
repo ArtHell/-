@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Doshka.Models;
+using Doshka.Services;
 using Microsoft.AspNet.Identity;
 
 namespace Doshka.Controllers
@@ -27,11 +28,25 @@ namespace Doshka.Controllers
         /// </summary>
         /// <returns>View</returns>
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
-            var pages = db.Ads.Include(a => a.Author);
-            return View(pages.ToList());
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var pages = Search.GetAds(searchString);
+                if (pages.Count != 0)
+                {
+                    return View(pages);
+                }
+                //TO_DO : create view
+            }
+            else
+            {
+                var pages = db.Ads.Include(a => a.Author);
+                return View(pages.ToList());
+            }
+            var ads = db.Ads.Include(a => a.Author);
+            return View(ads.ToList());
         }
 
         /// <summary>

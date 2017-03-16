@@ -34,5 +34,7 @@ namespace Doshka.Models
         /// Gets or sets the author.
         /// </summary>
         public virtual ApplicationUser Author { get; set; }
+        
+        
     }
 }
