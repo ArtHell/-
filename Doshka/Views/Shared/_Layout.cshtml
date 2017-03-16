@@ -30,15 +30,17 @@
                 </ul>
                     
                 @Html.Partial("_LoginPartial")
-                <div class="search-filed__wrap">
-                    <input type="text" id="search-field" class="form-control"
-                           value="Search..." onclick="SearchHelper.OnClick()" />
-                </div>
+                
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
+<div class="container body-content">
+    <div class="search-filed__wrap">
+        <input type="text" id="search-field" class="form-control"
+               value="Search..." onclick="SearchHelper.OnClick()" />
     </div>
+
+    @RenderBody()
+</div>
 </body>
 </html>
