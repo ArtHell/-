@@ -10,6 +10,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
 
 </head>
 <body onclick="SearchHider">
@@ -35,11 +36,6 @@
         </div>
     </div>
 <div class="container body-content">
-    <div class="search-filed__wrap">
-        <input type="text" id="search-field" class="form-control"
-               value="Search..." onclick="SearchHelper.OnClick()" />
-    </div>
-
     @RenderBody()
 </div>
 </body>

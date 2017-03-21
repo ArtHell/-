@@ -6,25 +6,37 @@
 }
 
 <br/>
-@foreach (var item in Model)
+
+@using (Ajax.BeginForm("Index", "Ads", new AjaxOptions { UpdateTargetId = "ads" }))
 {
-    <div class="col-sm-6">
-        <div class="card card-block">
-            <h3 class="card-title">
-                @Html.DisplayFor(modelItem => item.Title) 
-                
-                @{
-                    if (HttpContext.Current.User.IsInRole("Admin") || (string)ViewBag.UserId == item.Author.Id)
-                    {
-                        <a href="/Ads/Edit/@item.Id"><span class="glyphicon glyphicon-edit" style="color: black"></span></a>
-                        <a href="/Ads/Delete/@item.Id"><span class="glyphicon glyphicon-remove" style="float: right; color: red"></span></a>
-                    }
-                }
-                
-            </h3>
-            <p class="card-text">@Html.Raw(item.Description)</p>
-            <div class="card-footer text-muted">@Html.DisplayFor(modelItem => item.Author.Email)</div>
-            
-        </div>
+    <div class="search-filed__wrap" id="ads-search">
+
+        <input type="text" id="search-field" class="form-control" name="searchString"
+               value="Search..." onclick="SearchHelper.OnClick()" />
+
     </div>
 }
+<div id="ads">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6">
+            <div class="card card-block">
+                <h3 class="card-title">
+                    @Html.DisplayFor(modelItem => item.Title)
+
+                    @{
+                        if (HttpContext.Current.User.IsInRole("Admin") || (string)ViewBag.UserId == item.Author.Id)
+                        {
+                            <a href="/Ads/Edit/@item.Id"><span class="glyphicon glyphicon-edit" style="color: black"></span></a>
+                            <a href="/Ads/Delete/@item.Id"><span class="glyphicon glyphicon-remove" style="float: right; color: red"></span></a>
+                        }
+                    }
+
+                </h3>
+                <p class="card-text">@Html.Raw(item.Description)</p>
+                <div class="card-footer text-muted">@Html.DisplayFor(modelItem => item.Author.Email)</div>
+
+            </div>
+        </div>
+                        }
+</div>

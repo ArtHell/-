@@ -21,7 +21,6 @@ namespace Doshka.Services
                     where i.Title.Contains(item) || i.Description.Contains(item)
                                       select i;
             }
-
             return ads.ToList();
         }
     }
