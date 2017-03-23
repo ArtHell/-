@@ -38,17 +38,17 @@ namespace Doshka.Models
         /// <summary>
         /// Gets or sets the creation date.
         /// </summary>
-        public virtual DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
-        public virtual string Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
-        public virtual decimal Price { get; set; }
+        public decimal Price { get; set; }
 
     }
 }

@@ -60,11 +60,12 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId")] Ad ad)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type")] Ad ad)
         {
             if (ModelState.IsValid)
             {
                 ad.AuthorId = User.Identity.GetUserId();
+                ad.CreationDate = DateTime.Now;
                 db.Ads.Add(ad);
                 db.SaveChanges();
                 return RedirectToAction("Index");
