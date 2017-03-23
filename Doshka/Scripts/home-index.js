@@ -22,4 +22,4 @@
         var self = new HomeIndex();
         self.init();
     })
-}(jQuery))
+}(jQuery));
