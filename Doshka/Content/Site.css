@@ -67,3 +67,13 @@ textarea {
         margin: 0 6.5% 0 -3%;
     }
 }
+
+.search-element {
+    width: 24.7%;
+    display:inline-block;
+}
+
+.search-options {
+    margin-left: 20px;
+    margin-right: -20px;
+}
