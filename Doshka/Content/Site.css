@@ -28,8 +28,17 @@ textarea {
     margin: 19px;
 }
 
+.search-element {
+    width: 24.7%;
+    display:inline-block;
+}
+
+.search-options {
+    margin: 0 -1.7% 0 1.7%;
+}
+
 .search-filed__wrap {
-        margin: 0 3% 0 -0.5%;
+    margin: 0 3% 0 -0.5%;
 }
 
 
@@ -40,6 +49,14 @@ textarea {
     .search-filed__wrap {
         margin: 0 3.5% 0 -0.5%;
     }
+    .search-element {
+        width: 24%;
+        display:inline-block;
+    }
+
+    .search-options {
+        margin: 0 -4.5% 0 2%;
+    }
 }
 
 
@@ -48,13 +65,44 @@ textarea {
     .search-filed__wrap {
         margin: 0 5% 0 -0.5%;
     }
+
+    .search-element {
+        width: 24%;
+        display:inline-block;
+    }
+
+    .search-options {
+        margin: 0 -5% 0 2.8%;
+    }
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     .search-filed__wrap {
         margin: 0 3% 0 -0.5%;
     }
+
+    .search-element {
+        width: 24%;
+        display:inline-block;
+    }
+
+    .search-options {
+        margin: 0 -5% 0 2.8%;
+    }
 }
+
+@media only screen and (max-width : 630px) {
+    .search-element {
+        display: block;
+        max-width: 100%;
+    }
+
+    .search-options {
+        margin: 0 -5% 0 2.8%;
+        width: 100%
+    }
+}
+
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
     .search-filed__wrap {
@@ -66,14 +114,4 @@ textarea {
     .search-filed__wrap {
         margin: 0 6.5% 0 -3%;
     }
-}
-
-.search-element {
-    width: 24.7%;
-    display:inline-block;
-}
-
-.search-options {
-    margin-left: 20px;
-    margin-right: -20px;
 }
