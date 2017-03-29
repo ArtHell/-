@@ -9,33 +9,7 @@
 
 <br/>
 
-@using (Ajax.BeginForm("Index", "Ads", new AjaxOptions { UpdateTargetId = "ads"}))
-{
-    <div class="search-filed__wrap" id="ads-search">
 
-        <input type="text" id="search-field" class="form-control" placeholder="Search for..." name="searchString"/>
-        
-        <div class="search-options">
-            <div class="search-element">
-                <input type="text" id="min-price" class="form-control" placeholder="Price from" name="minPrice"/>
-            </div>
-            <div class="search-element">
-                <input type="text" id="max-price" class="form-control" placeholder="Price to" name="maxPrice"/>
-            </div>
-            <div class="search-element">
-                <select class="selectpicker form-control" id="type" data-max-options="3" title="Choose ad type" name="type">
-                    <option>Sale</option>
-                    <option>Give Away</option>
-                    <option>Exchange</option>
-                    <option>Purchase</option>
-                </select>
-            </div>
-            <div class="search-element">
-                <input type="submit" value="Submit" class="form-control btn-success"/>
-            </div>
-        </div>
-    </div>
-}
 
 
 <div id="ads">

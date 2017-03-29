@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.Entity.Core.Common.CommandTrees;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Doshka.Models;

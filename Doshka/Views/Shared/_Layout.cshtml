@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
@@ -9,11 +9,15 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    
+    @RenderSection("scripts", false)
+    @{
+        var ajaxForm = Ajax.BeginForm("Index", "Ads", new AjaxOptions {UpdateTargetId = "ads"});
+    }
 
 </head>
 <body>
+@using (ajaxForm)
+{
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,19 +26,42 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*@Html.ActionLink("Doshka", "Index", "Ads", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Doshka", "Index", "Ads")</li>
                     <li>@Html.ActionLink("Create ad", "Create", "Ads")</li>
                 </ul>
-                    
+
                 @Html.Partial("_LoginPartial")
-                
+
+                <input type="text" id="search-field" class="form-control" placeholder="Search for..." name="searchString"/>
             </div>
         </div>
     </div>
+    <div class="search-filed__wrap" id="ads-search">
+
+        <div class="search-options">
+            <div class="search-element">
+                <input type="text" id="min-price" class="form-control" placeholder="Price from" name="minPrice"/>
+            </div>
+            <div class="search-element">
+                <input type="text" id="max-price" class="form-control" placeholder="Price to" name="maxPrice"/>
+            </div>
+            <div class="search-element">
+                <select class="selectpicker form-control" id="type" data-max-options="3" title="Choose ad type" name="type">
+                    <option>Sale</option>
+                    <option>Give Away</option>
+                    <option>Exchange</option>
+                    <option>Purchase</option>
+                </select>
+            </div>
+            <div class="search-element">
+                <input type="submit" value="Submit" class="form-control btn-success"/>
+            </div>
+        </div>
+    </div>
+}
 <div class="container body-content">
     @RenderBody()
 </div>
