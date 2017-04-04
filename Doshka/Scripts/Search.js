@@ -5,7 +5,7 @@
     var typeQuery = $('#type').val();
     $.ajax({
         type: 'POST',
-        url: 'Ads/RenderAds',
+        url: '/Ads/RenderAds',
         data: { "searchString": searchQuery, "minPrice": minPriceQuery, "maxPrice": maxPriceQuery, "type": typeQuery },
         success: function (data, textstatus) {
             if (data != '') {
