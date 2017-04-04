@@ -20,12 +20,16 @@
 input,
 select,
 textarea {
-    max-width: 100%;
+    max-width: 280px;
 }
 
 #search-field {
     max-width: 25%;
     margin: 9px;
+}
+
+.search-element input,select,textarea {
+    max-width: 100%;
 }
 
 .search-element {
@@ -118,4 +122,9 @@ textarea {
 
 .btn-hidden {
     display: none !important;
+}
+
+.register-help {
+    font-size: 11px;
+    margin-bottom: -5px;
 }
