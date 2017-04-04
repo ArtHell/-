@@ -10,7 +10,9 @@ namespace Doshka
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/summernote/summernote.js",
+                        "~/Scripts/summernote/summernote.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/myScripts").Include(
                         "~/Scripts/Search.js",
                         "~/Scripts/home-index.js"));
 
