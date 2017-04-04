@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 100%;
 }
 
 #search-field {
@@ -29,12 +29,12 @@ textarea {
 }
 
 .search-element {
-    width: 24.7%;
+    width: 32.7%;
     display:inline-block;
 }
 
 .search-options {
-    margin: 0 -1.7% 0 1.7%;
+    margin: 19px -1.7% 0 1.7%;
 }
 
 .search-filed__wrap {
@@ -114,4 +114,8 @@ textarea {
     .search-filed__wrap {
         margin: 0 6.5% 0 -3%;
     }
+}
+
+.btn-hidden {
+    display: none !important;
 }

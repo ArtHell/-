@@ -10,59 +10,31 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)
-    @{
-        var ajaxForm = Ajax.BeginForm("Index", "Ads", new AjaxOptions {UpdateTargetId = "ads"});
-    }
-
 </head>
 <body>
-@using (ajaxForm)
-{
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Doshka", "Index", "Ads")</li>
-                    <li>@Html.ActionLink("Create ad", "Create", "Ads")</li>
-                </ul>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Doshka", "Index", "Ads")</li>
+                <li>@Html.ActionLink("Create ad", "Create", "Ads")</li>
+            </ul>
 
-                @Html.Partial("_LoginPartial")
+            @Html.Partial("_LoginPartial")
 
-                <input type="text" id="search-field" class="form-control" placeholder="Search for..." name="searchString"/>
-            </div>
+            <input type="text" id="search-field" onchange="Search();" class="form-control" placeholder="Search for..." name="searchString"/>            
         </div>
     </div>
-    <div class="search-filed__wrap" id="ads-search">
+</div>
 
-        <div class="search-options">
-            <div class="search-element">
-                <input type="text" id="min-price" class="form-control" placeholder="Price from" name="minPrice"/>
-            </div>
-            <div class="search-element">
-                <input type="text" id="max-price" class="form-control" placeholder="Price to" name="maxPrice"/>
-            </div>
-            <div class="search-element">
-                <select class="selectpicker form-control" id="type" data-max-options="3" title="Choose ad type" name="type">
-                    <option>Sale</option>
-                    <option>Give Away</option>
-                    <option>Exchange</option>
-                    <option>Purchase</option>
-                </select>
-            </div>
-            <div class="search-element">
-                <input type="submit" value="Submit" class="form-control btn-success"/>
-            </div>
-        </div>
-    </div>
-}
-<div class="container body-content">
+<div class="container body-content" id="body-id"> 
     @RenderBody()
 </div>
 </body>

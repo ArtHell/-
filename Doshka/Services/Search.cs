@@ -38,7 +38,7 @@ namespace Doshka.Services
                       where i.Price < Convert.ToDecimal(maxPrice)
                       select i;
             }
-            if (!String.IsNullOrEmpty(type) && type != "Any")
+            if (!String.IsNullOrEmpty(type) && type == "Any")
             {
                 ads = from i in ads
                       where i.Type == type

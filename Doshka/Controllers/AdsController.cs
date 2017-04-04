@@ -28,21 +28,21 @@ namespace Doshka.Controllers
         /// </summary>
         /// <returns>View</returns>
         [AllowAnonymous]
-        public ActionResult Index(string searchString, string minPrice, string maxPrice, string type)
+        public ActionResult Index()
         {
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
-            if (!String.IsNullOrEmpty(searchString) || !String.IsNullOrEmpty(minPrice)
-                || !String.IsNullOrEmpty(maxPrice) || !String.IsNullOrEmpty(type))
-            {
-                var pages = Search.GetAds(searchString, minPrice, maxPrice, type);
-                ViewBag.searchString = searchString;
-                return View(pages);
-            }
-            else
-            {
-                var pages = db.Ads.Include(a => a.Author);
-                return View(pages.ToList());
-            }
+            var pages = db.Ads.Include(a => a.Author);
+            return View(pages.ToList());
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public PartialViewResult RenderAds(string searchString, string minPrice, string maxPrice, string type)
+        {
+            ViewBag.UserId = HttpContext.User.Identity.GetUserId();
+            var pages = Search.GetAds(searchString, minPrice, maxPrice, type);
+            ViewBag.searchString = searchString;
+            return PartialView("RenderAds", pages);
         }
 
         /// <summary>

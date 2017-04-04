@@ -1,7 +1,30 @@
 ﻿@model List<Doshka.Models.Ad>
-
-@{
-    if (Model.Count == 0)
+<div id="ads-filter">
+    @if (!string.IsNullOrEmpty(ViewBag.searchString))
+    {
+        <div class="search-filed__wrap" id="ads-search">
+            <div class="search-options">
+                <div class="search-element">
+                    <input type="text" id="min-price" onchange="Search()" class="form-control" placeholder="Price from" name="minPrice"/>
+                </div>
+                <div class="search-element">
+                    <input type="text" id="max-price" onchange="Search();" class="form-control" placeholder="Price to" name="maxPrice"/>
+                </div>
+                <div class="search-element">
+                    <select class="selectpicker form-control" onchange="Search();" id="type" title="Choose ad type" name="type">
+                        <option>Any</option>
+                        <option>Sale</option>
+                        <option>Give Away</option>
+                        <option>Exchange</option>
+                        <option>Purchase</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div id="ads-list">
+    @if (Model.Count == 0)
     {
         <h3>Sorry, no results for your request</h3>
     }
@@ -15,10 +38,12 @@
                         @Html.DisplayFor(modelItem => item.Title)
 
                         @{
-                            if (HttpContext.Current.User.IsInRole("Admin") || (string)ViewBag.UserId == item.Author.Id)
+                            if (HttpContext.Current.User.IsInRole("Admin") || ((string) ViewBag.UserId == item.Author.Id))
                             {
-                                <a href="/Ads/Edit/@item.Id"><span class="glyphicon glyphicon-edit" style="color: black"></span></a>
-                                <a href="/Ads/Delete/@item.Id"><span class="glyphicon glyphicon-remove" style="float: right; color: red"></span></a>
+                                <a href="/Ads/Edit/@item.Id">
+                                    <span class="glyphicon glyphicon-edit" style="color: black"></span></a>
+                                <a href="/Ads/Delete/@item.Id">
+                                    <span class="glyphicon glyphicon-remove" style="color: red; float: right;"></span></a>
                             }
                         }
 
@@ -33,6 +58,6 @@
 
                 </div>
             </div>
-          }
+        }
     }
-}
+</div>

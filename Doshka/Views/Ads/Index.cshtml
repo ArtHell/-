@@ -1,18 +1,11 @@
-﻿@using Doshka.Services
-@using Microsoft.AspNet.Identity
-@model IEnumerable<Doshka.Models.Ad>
+﻿@model IEnumerable<Doshka.Models.Ad>
 
 @{
     ViewBag.Title = "Index";
-
 }
 
+
+@Html.Partial("RenderAds");
+
 <br/>
-
-
-
-
-<div id="ads">
-    @Html.Partial("RenderAds")
-</div>
 
