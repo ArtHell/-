@@ -110,7 +110,7 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId")] Ad ad)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type")] Ad ad)
         {
             if (ModelState.IsValid)
             {
