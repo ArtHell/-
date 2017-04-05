@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using Doshka.Models;
 
@@ -13,41 +15,33 @@ namespace Doshka.Services
     {
         private static readonly ApplicationDbContext Db = new ApplicationDbContext();
 
-        public static List<Ad> GetAds(string searchString, string minPrice, string maxPrice, string type)
+        public async static Task<List<Ad>> GetAds(string searchString, string minPrice, string maxPrice, string type)
         {
-            IEnumerable<Ad> ads = Db.Ads;
+            List<Ad> ads = await Db.Ads.ToListAsync();
             if (!String.IsNullOrEmpty(searchString))
             {
                 string[] searchWords = searchString.Split(' ');
                 foreach (var item in searchWords)
                 {
-                    ads = from i in ads
-                        where i.Title.Contains(item) || i.Description.Contains(item)
-                        select i;
+                    ads = ads.Where(x => x.Title.Contains(item) || x.Description.Contains(item)).ToList();
                 }
             }
             if (!String.IsNullOrEmpty(minPrice))
             {
-                ads = from i in ads
-                    where i.Price > Convert.ToDecimal(minPrice)
-                    select i;
+                ads = ads.Where(x => x.Price > Convert.ToDecimal(minPrice)).ToList();
             }
             if (!String.IsNullOrEmpty(maxPrice))
             {
-                ads = from i in ads
-                      where i.Price < Convert.ToDecimal(maxPrice)
-                      select i;
+                ads = ads.Where(x => x.Price > Convert.ToDecimal(maxPrice)).ToList();
             }
             if (!String.IsNullOrEmpty(type))
             {
                 if (type != "Any")
                 {
-                    ads = from i in ads
-                        where i.Type == type
-                        select i;
+                    ads = ads.Where(x => x.Type == type).ToList();
                 }
             }
-            return ads.ToList();
+            return ads;
         }
     }
 }

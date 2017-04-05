@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Doshka.Models;
@@ -37,10 +38,10 @@ namespace Doshka.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public PartialViewResult RenderAds(string searchString, string minPrice, string maxPrice, string type)
+        public async Task<PartialViewResult> RenderAds(string searchString, string minPrice, string maxPrice, string type)
         {
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
-            var pages = Search.GetAds(searchString, minPrice, maxPrice, type);
+            var pages = await Search.GetAds(searchString, minPrice, maxPrice, type);
             ViewBag.searchString = searchString;
             return PartialView("RenderAds", pages);
         }

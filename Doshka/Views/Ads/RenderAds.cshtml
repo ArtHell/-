@@ -5,13 +5,13 @@
         <div class="search-filed__wrap" id="ads-search">
             <div class="search-options">
                 <div class="search-element">
-                    <input type="text" id="min-price"  class="form-control" placeholder="Price from" name="minPrice"/>
+                    <input type="text" id="min-price" onchange="searchAction();"  class="form-control" placeholder="Price from" name="minPrice"/>
                 </div>
                 <div class="search-element">
-                    <input type="text" id="max-price"  class="form-control" placeholder="Price to" name="maxPrice"/>
+                    <input type="text" id="max-price" onchange="searchAction();"  class="form-control" placeholder="Price to" name="maxPrice"/>
                 </div>
                 <div class="search-element">
-                    <select class="selectpicker form-control" id="type" title="Choose ad type" name="type">
+                    <select class="selectpicker form-control" onchange="search();" id="type" title="Choose ad type" name="type">
                         <option>Any</option>
                         <option>Sale</option>
                         <option>Give Away</option>
@@ -61,4 +61,3 @@
         }
     }
 </div>
-@Scripts.Render("~/bundles/myScripts")

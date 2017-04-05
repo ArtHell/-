@@ -9,6 +9,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/myScripts")
     @RenderSection("scripts", false)
 </head>
 <body>
@@ -29,14 +30,13 @@
 
             @Html.Partial("_LoginPartial")
 
-            <input type="text" id="search-field" class="form-control" placeholder="Search for..." name="searchString"/>            
+            <input type="text" id="search-field" onchange="searchAction();" class="form-control" placeholder="Search for..." name="searchString"/>            
         </div>
     </div>
 </div>
 <div class="container body-content" id="body-id"> 
     @RenderBody()
 </div>
-@Scripts.Render("~/bundles/myScripts")
 </body>
 </html>
 
