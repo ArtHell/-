@@ -50,5 +50,14 @@ namespace Doshka.Models
         /// </summary>
         public decimal Price { get; set; }
 
+        /// <summary>
+        /// Gets or sets the category Id.
+        /// </summary>
+        public long CategoryId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the subcategory Id.
+        /// </summary>
+        public long SubCategoryId { get; set; }
     }
 }
