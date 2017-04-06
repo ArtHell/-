@@ -27,6 +27,10 @@ namespace Doshka.Models
 
         public DbSet<Ad> Ads { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<SubCategory> SubCategories { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
