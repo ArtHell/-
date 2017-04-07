@@ -1,17 +1,15 @@
-﻿@model List<Doshka.Models.Ad>
-<div id="ads-filter">
-    @if (!string.IsNullOrEmpty(ViewBag.searchString))
-    {
+﻿@{bool fl = false;}
+@model List<Doshka.Models.Ad>
         <div class="search-filed__wrap" id="ads-search">
             <div class="search-options">
                 <div class="search-element">
-                    <input type="text" id="min-price" onchange="searchAction();"  class="form-control" placeholder="Price from" name="minPrice"/>
+                    <input type="text" id="min-price" onchange="searchAction();" class="form-control" placeholder="Price from" name="minPrice"/>
                 </div>
                 <div class="search-element">
-                    <input type="text" id="max-price" onchange="searchAction();"  class="form-control" placeholder="Price to" name="maxPrice"/>
+                    <input type="text" id="max-price" onchange="searchAction();" class="form-control" placeholder="Price to" name="maxPrice"/>
                 </div>
                 <div class="search-element">
-                    <select class="selectpicker form-control" onchange="search();" id="type" title="Choose ad type" name="type">
+                    <select class="selectpicker form-control" onchange="search();" id="type" name="type">
                         <option>Any</option>
                         <option>Sale</option>
                         <option>Give Away</option>
@@ -19,11 +17,33 @@
                         <option>Purchase</option>
                     </select>
                 </div>
+                <div class="search-element">
+                    <select class="selectpicker form-control" onchange="search();" id="category"
+                             data-size="6" name="category">
+                        @foreach (var category in ViewBag.CategoryList)
+                        {
+                            if (fl)
+                            {
+                                <option>@category.Name</option>
+                            }
+                            else
+                            {
+                                fl = true;
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="search-element">
+                    <select class="selectpicker form-control" onchange="search();" id="subcategory"
+                             data-size="6" name="sub-category">
+                        @foreach (var subCategory in ViewBag.subCategoriesList)
+                        {
+                            <option>@subCategory.Name</option>
+                        }
+                    </select>
+                </div>
             </div>
         </div>
-    }
-</div>
-<div id="ads-list">
     @if (Model.Count == 0)
     {
         <h3>Sorry, no results for your request</h3>
@@ -60,4 +80,3 @@
             </div>
         }
     }
-</div>

@@ -15,7 +15,8 @@ namespace Doshka.Services
     {
         private static readonly ApplicationDbContext Db = new ApplicationDbContext();
 
-        public async static Task<List<Ad>> GetAds(string searchString, string minPrice, string maxPrice, string type)
+        public async static Task<List<Ad>> GetAds(string searchString, string minPrice, string maxPrice,
+            string type, string category, string subCategory)
         {
             List<Ad> ads = await Db.Ads.ToListAsync();
             if (!String.IsNullOrEmpty(searchString))

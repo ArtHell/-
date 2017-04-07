@@ -33,16 +33,21 @@ namespace Doshka.Controllers
         {
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
             var pages = db.Ads.Include(a => a.Author);
+            ViewBag.CategoryList = db.Categories.ToList();
+            ViewBag.subCategoriesList = db.SubCategories.Where(x => x.CategoryId == 1).ToList();
             return View(pages.ToList());
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<PartialViewResult> RenderAds(string searchString, string minPrice, string maxPrice, string type)
+        public async Task<PartialViewResult> RenderAds(string searchString, string minPrice, string maxPrice,
+            string type, string category, string subCategory)
         {
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
-            var pages = await Search.GetAds(searchString, minPrice, maxPrice, type);
+            var pages = await Search.GetAds(searchString, minPrice, maxPrice, type, category, subCategory);
             ViewBag.searchString = searchString;
+            ViewBag.CategoryList = db.Categories.ToList();
+            ViewBag.subCategoriesList = db.SubCategories.Where(x => x.Name == subCategory).ToList();
             return PartialView("RenderAds", pages);
         }
 
@@ -52,6 +57,8 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         public ActionResult Create()
         {
+            ViewBag.CategoryList = db.Categories.ToList();
+            ViewBag.subCategoriesList = db.SubCategories.Where(x => x.CategoryId == 1).ToList();
             return View();
         }
 
@@ -62,7 +69,7 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type")] Ad ad)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +118,7 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type")] Ad ad)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad)
         {
             if (ModelState.IsValid)
             {

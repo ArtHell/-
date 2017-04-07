@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Doshka.Models;
+
+namespace Doshka.Controllers
+{
+    public class SubCategoriesController : Controller
+    {
+        private readonly ApplicationDbContext Db = new ApplicationDbContext();
+
+        public JsonResult GetSubCategories(string categoryName)
+        {
+            var category = Db.Categories.FirstOrDefault(x => x.Name == categoryName);
+            var subCategoriesList = Db.SubCategories.Where(x => x.CategoryId == category.CategoryId);
+            ViewBag.SubCategoryList = subCategoriesList;
+
+            return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
+        }
+    }
+}
