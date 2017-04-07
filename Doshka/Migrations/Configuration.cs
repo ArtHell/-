@@ -398,160 +398,264 @@ Clothes for pregnant women*/
             {
                 SubCategoryId = 61,
                 Name = "Audio equipment",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Computers and accessories",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "TV and video equipment",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Photography and optics",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Games and consoles",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Phones",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Office equipment",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Tablets and e-books",
-                CategoryId = 7
+                CategoryId = 8
             }, new SubCategory()
             {
                 SubCategoryId = 61,
                 Name = "Appliances",
-                CategoryId = 7
+                CategoryId = 8
                 //---------------------------------------------------------Garden---------------------------
             }, new SubCategory()
             {
                 SubCategoryId = 63,
                 Name = "Garden furniture and barbecues",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 64,
                 Name = "Garden plants, seedlings and seeds",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 65,
                 Name = "Gardening equipment and tools",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 66,
                 Name = "Greenhouses",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 67,
                 Name = "Garden Accessories",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 68,
                 Name = "Fertilizers and agrochemistry",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 69,
                 Name = "Everything for the beekeeper",
-                CategoryId = 8
+                CategoryId = 9
             }, new SubCategory()
             {
                 SubCategoryId = 70,
                 Name = "Other for the garden",
-                CategoryId = 8
+                CategoryId = 9
                 //----------------------------------------------------------Wedding-----------------------
             }, new SubCategory()
             {
                 SubCategoryId = 71,
                 Name = "Wedding Dresses",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 72,
                 Name = "Wedding Costumes",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 73,
                 Name = "Wedding shoes",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 74,
                 Name = "Wedding accessories",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 75,
                 Name = "Gifts and Holiday Goods",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 76,
                 Name = "Carnival costumes",
-                CategoryId = 9
+                CategoryId = 10
             }, new SubCategory()
             {
                 SubCategoryId = 77,
                 Name = "Services for celebrations",
-                CategoryId = 9
+                CategoryId = 10
                 //------------------------------------------------------Work, business and study--------------
             }, new SubCategory()
             {
                 SubCategoryId = 78,
                 Name = "Careers",
-                CategoryId = 10
+                CategoryId = 11
             }, new SubCategory()
             {
                 SubCategoryId = 79,
                 Name = "Workmanship",
-                CategoryId = 10
+                CategoryId = 11
             }, new SubCategory()
             {
                 SubCategoryId = 80,
                 Name = "Machines and equipment",
-                CategoryId = 10
+                CategoryId = 11
             }, new SubCategory()
             {
                 SubCategoryId = 81,
                 Name = "Education",
-                CategoryId = 10
+                CategoryId = 11
             }, new SubCategory()
             {
                 SubCategoryId = 82,
                 Name = "Stationery",
-                CategoryId = 9
+                CategoryId = 11
             }, new SubCategory()
             {
                 SubCategoryId = 83,
                 Name = "School Costumes",
-                CategoryId = 10
+                CategoryId = 11 
+                //--------------------------------------------------------Services---------------------------
             }, new SubCategory()
             {
                 SubCategoryId = 84,
-                Name = "Appliances",
-                CategoryId = 11
+                Name = "Services for cars",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 85,
+                Name = "Domestic services",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 86,
+                Name = "Computer services, internet",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 87,
+                Name = "Beauty and health",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 88,
+                Name = "Nanny and nurse",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 89,
+                Name = "Translation and interpreting services",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 90,
+                Name = "Transportation of passengers and cargoes",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 91,
+                Name = "Advertising, printing",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 92,
+                Name = "Services in construction and repair",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 93,
+                Name = "Repair of furniture",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 94,
+                Name = "Repair of clothes, sewing, dry cleaning",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 95,
+                Name = "Garden, accomplishment",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 96,
+                Name = "Services for animals",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 97,
+                Name = "Photo and video",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 98,
+                Name = "Legal services and insurance",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 99,
+                Name = "Tourist services",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 100,
+                Name = "Services for celebrations",
+                CategoryId = 12
+
+            }, new SubCategory()
+            {
+                SubCategoryId = 101,
+                Name = "Other services",
+                CategoryId = 12
+
             });
         }
     }
