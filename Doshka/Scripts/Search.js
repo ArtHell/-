@@ -6,6 +6,24 @@
     });
 }
 
+var searchStringHandler = function () {
+    $("#search-field").keyup(function (event) {
+        if (event.keyCode === 13) {
+            var searchQuery = $('#search-field').val();
+            $.ajax({
+                type: 'POST',
+                url: '/Ads/RenderAds',
+                data: {"searchString": searchQuery},
+                success: function (data, textstatus) {
+                    if (data !== '') {
+                        $("#body-id").html(data);
+                    }
+                }
+            });
+        }
+    });
+}
+
 var search = function (event) {
 
     var searchQuery = $('#search-field').val();
@@ -32,34 +50,39 @@ var search = function (event) {
         },
         success: function (data, textstatus) {
             if (data !== '') {
-                $("#body-id").html(data);
-                $('#min-price').val(minPriceQuery);
-                $('#max-price').val(maxPriceQuery);
-                $('#category').val(categoryQuery);
-                $('#subcategory').val(subCategoryQuery);
-                if (typeQuery === "Sale") {
-                    $('#min-price').show();
-                    $('#max-price').show();
-                } else {
-                    $('#min-price').hide();
-                    $('#max-price').hide();
-                }
-                if (typeQuery !== undefined) {
-                    $('#type').val(typeQuery);
-                }
+                $("#body-content").html(data);
             }
         }
     });
 }
 
 var getSubCategoriesCreate = function(event) {
-    var categoryQuery = $('#category-create').val();
+    var categoryQuery = $('#category-create-or-update').val();
     $.ajax({
         type: 'POST',
         url: '/SubCategories/GetSubCategories',
         data: { "categoryName": categoryQuery },
         success: function (data, textstatus) {
-            var target = $('#subcategory-create').selectpicker();
+            var target = $('#subcategory-create-or-update').selectpicker();
+            target.empty();
+            for (var i = 0; i < data.length; i++) {
+                var newitemnum = i;
+                var newitemdesc = data[i].Name;
+                target.append('<option value="' + newitemdesc + '" selected="">' + newitemdesc + '</option>');
+                target.selectpicker("refresh");
+            }
+        }
+    });
+}
+
+var getSubCategories = function (event) {
+    var categoryQuery = $('#category').val();
+    $.ajax({
+        type: 'POST',
+        url: '/SubCategories/GetSubCategories',
+        data: { "categoryName": categoryQuery },
+        success: function (data, textstatus) {
+            var target = $('#subcategory').selectpicker();
             target.empty();
             for (var i = 0; i < data.length; i++) {
                 var newitemnum = i;

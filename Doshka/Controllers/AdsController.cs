@@ -106,6 +106,7 @@ namespace Doshka.Controllers
             }
             else if (HttpContext.User.IsInRole("Admin") || HttpContext.User.Identity.GetUserId() == ad.AuthorId)
             {
+                ViewBag.CategoryList = db.Categories.ToList();
                 return View(ad);
             }
             else
@@ -121,11 +122,14 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad,
+            string category, string subcategory)
         {
             if (ModelState.IsValid)
             {
                 ad.AuthorId = User.Identity.GetUserId();
+                ad.CategoryId = db.Categories.FirstOrDefault(x => x.Name == category).CategoryId;
+                ad.SubCategoryId = db.SubCategories.FirstOrDefault(x => x.Name == subcategory).SubCategoryId;
                 db.Entry(ad).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -42,6 +42,14 @@ namespace Doshka.Services
                     ads = ads.Where(x => x.Type == type).ToList();
                 }
             }
+            if (!String.IsNullOrEmpty(category))
+            {
+                ads = ads.Where(x => x.CategoryId == Db.Categories.FirstOrDefault(i => i.Name == category).CategoryId).ToList();
+            }
+            if (!String.IsNullOrEmpty(subCategory))
+            {
+                ads = ads.Where(x => x.SubCategoryId == Db.SubCategories.FirstOrDefault(i => i.Name == subCategory).SubCategoryId).ToList();
+            }
             return ads;
         }
     }
