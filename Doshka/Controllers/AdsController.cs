@@ -69,11 +69,14 @@ namespace Doshka.Controllers
         /// <returns>View</returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,AuthorId,CreationDate,Price,Type,Category,Subcategory")] Ad ad,
+            string category, string subcategory)
         {
             if (ModelState.IsValid)
             {
                 ad.AuthorId = User.Identity.GetUserId();
+                ad.CategoryId = db.Categories.FirstOrDefault(x => x.Name == category).CategoryId;
+                ad.SubCategoryId = db.SubCategories.FirstOrDefault(x => x.Name == subcategory).SubCategoryId;
                 ad.CreationDate = DateTime.Now;
                 db.Ads.Add(ad);
                 db.SaveChanges();

@@ -64,7 +64,7 @@ var getSubCategoriesCreate = function(event) {
             for (var i = 0; i < data.length; i++) {
                 var newitemnum = i;
                 var newitemdesc = data[i].Name;
-                target.append('<option value="' + newitemnum + '" selected="">' + newitemdesc + '</option>');
+                target.append('<option value="' + newitemdesc + '" selected="">' + newitemdesc + '</option>');
                 target.selectpicker("refresh");
             }
         }
