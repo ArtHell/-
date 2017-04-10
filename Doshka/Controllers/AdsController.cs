@@ -40,6 +40,18 @@ namespace Doshka.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        public ActionResult DeleteOutdatedAds()
+        {
+            var ads = db.Ads.ToList();
+            var adsToDelete = 
+                ads.Where(x => x.CreationDate.AddDays(14) < DateTime.Now);
+            db.Ads.RemoveRange(adsToDelete);
+            db.SaveChanges();
+            return new EmptyResult();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
         public async Task<PartialViewResult> RenderAds(string searchString, string minPrice, string maxPrice,
             string type, string category, string subCategory)
         {
