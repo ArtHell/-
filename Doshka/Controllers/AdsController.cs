@@ -59,7 +59,6 @@ namespace Doshka.Controllers
             var pages = await Search.GetAds(searchString, minPrice, maxPrice, type, category, subCategory);
             ViewBag.searchString = searchString;
             var categories = db.Categories.ToList();
-            categories.Reverse(0, categories.Count);
             ViewBag.CategoryList = categories;
             return PartialView("RenderAds", pages);
         }

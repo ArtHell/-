@@ -11,7 +11,7 @@
             </select>
         </div>
         <div class="search-element">
-            <select class="selectpicker form-control" title="Category" onchange="search();getSubCategories();" id="category"
+            <select class="selectpicker form-control" title="All categories" onchange="search();getSubCategories();" id="category"
                     data-size="6" name="category">
                 @foreach (var category in ViewBag.CategoryList)
                 {
@@ -20,9 +20,8 @@
             </select>
         </div>
         <div class="search-element">
-            <select class="selectpicker form-control" title="Subategory" onchange="search();"
-                    id="subcategory"
-                    data-size="6" name="sub-category">
+            <select class="selectpicker form-control" title="All subategories" onchange="search();"
+                    id="subcategory" data-size="6" name="sub-category">
             </select>
         </div>
         <div id="price-search">

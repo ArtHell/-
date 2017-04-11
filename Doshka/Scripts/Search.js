@@ -24,6 +24,7 @@ var searchStringHandler = function () {
                         $('#ads-search').hide();
                     }
                     $('#category').selectpicker("refresh");
+                    $('#subcategory').selectpicker("refresh");
                     $('#type').selectpicker("refresh");
                 }
             });
@@ -64,6 +65,7 @@ var search = function (event) {
                     $('#price-search').hide();
                 }
                 $('#category').selectpicker("refresh");
+                $('#subcategory').selectpicker("refresh");
                 $('#type').selectpicker("refresh");
             }
         }
@@ -102,7 +104,7 @@ var getSubCategories = function (event) {
             for (var i = data.length - 1; i >= 0; i--) {
                 var newitemnum = i;
                 var newitemdesc = data[i].Name;
-                target.append('<option value="' + newitemdesc + '" selected="">' + newitemdesc + '</option>');
+                target.append('<option>' + newitemdesc + '</option>');
                 target.selectpicker("refresh");
             }
         }

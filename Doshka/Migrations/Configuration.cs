@@ -23,11 +23,7 @@ namespace Doshka.Migrations
                 Name = "Admin"
             });
 
-            context.Categories.AddOrUpdate(new Category()
-            {
-                CategoryId = 0,
-                Name = "All categories"
-            }, new Category()
+            context.Categories.AddOrUpdate( new Category()
             {
                 CategoryId = 1,
                 Name = "Fashion & Style"
@@ -78,10 +74,6 @@ namespace Doshka.Migrations
             });
 
             context.SubCategories.AddOrUpdate(new SubCategory()
-            {                  
-                Name = "All subcategories",           
-                CategoryId = 14                          //No category
-            }, new SubCategory()
             {               
                 Name = "Men's Clothing",
                 CategoryId = 1
