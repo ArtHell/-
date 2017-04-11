@@ -41,6 +41,11 @@ namespace Doshka.Models
         public DateTime CreationDate { get; set; }
 
         /// <summary>
+        /// Gets or sets the eddition date.
+        /// </summary>
+        public DateTime EditDate { get; set; }
+
+        /// <summary>
         /// Gets or sets the type.
         /// </summary>
         public string Type { get; set; }

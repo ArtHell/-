@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201704061849108_Added categories and subcategories models. Updated Ad model.Designer.cs">
       <DependentUpon>201704061849108_Added categories and subcategories models. Updated Ad model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704111349442_Added date of editing in ad model.cs" />
+    <Compile Include="Migrations\201704111349442_Added date of editing in ad model.Designer.cs">
+      <DependentUpon>201704111349442_Added date of editing in ad model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Ad.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704061849108_Added categories and subcategories models. Updated Ad model.resx">
       <DependentUpon>201704061849108_Added categories and subcategories models. Updated Ad model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704111349442_Added date of editing in ad model.resx">
+      <DependentUpon>201704111349442_Added date of editing in ad model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

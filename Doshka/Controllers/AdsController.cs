@@ -44,7 +44,7 @@ namespace Doshka.Controllers
         {
             var ads = db.Ads.ToList();
             var adsToDelete = 
-                ads.Where(x => x.CreationDate.AddDays(14) < DateTime.Now);
+                ads.Where(x => x.EditDate.AddDays(14) < DateTime.Now);
             db.Ads.RemoveRange(adsToDelete);
             db.SaveChanges();
             return new EmptyResult();
@@ -104,6 +104,7 @@ namespace Doshka.Controllers
                 ad.CategoryId = db.Categories.FirstOrDefault(x => x.Name == category).CategoryId;
                 ad.SubCategoryId = db.SubCategories.FirstOrDefault(x => x.Name == subcategory).SubCategoryId;
                 ad.CreationDate = DateTime.Now;
+                ad.EditDate = DateTime.Now;
                 db.Ads.Add(ad);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -156,6 +157,7 @@ namespace Doshka.Controllers
                 ad.AuthorId = User.Identity.GetUserId();
                 ad.CategoryId = db.Categories.FirstOrDefault(x => x.Name == category).CategoryId;
                 ad.SubCategoryId = db.SubCategories.FirstOrDefault(x => x.Name == subcategory).SubCategoryId;
+                ad.EditDate = DateTime.Now;
                 db.Entry(ad).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
