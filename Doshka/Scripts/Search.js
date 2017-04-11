@@ -18,6 +18,13 @@ var searchStringHandler = function () {
                     if (data !== '') {
                         $("#body-id").html(data);
                     }
+                    if (searchQuery !== undefined && searchQuery !== "") {
+                        $('#ads-search').show();
+                    } else {
+                        $('#ads-search').hide();
+                    }
+                    $('#category').selectpicker("refresh");
+                    $('#type').selectpicker("refresh");
                 }
             });
         }
@@ -43,7 +50,7 @@ var search = function (event) {
 
     $.ajax({
         type: 'POST',
-        url: '/Ads/RenderAds',
+        url: '/Ads/UpdateAds',
         data: {
             "searchString": searchQuery, "minPrice": minPriceQuery, "maxPrice": maxPriceQuery,
             "type": typeQuery, "category": categoryQuery, "subCategory": subCategoryQuery
@@ -51,6 +58,13 @@ var search = function (event) {
         success: function (data, textstatus) {
             if (data !== '') {
                 $("#body-content").html(data);
+                if (typeQuery === "Sale") {
+                    $('#price-search').show();
+                } else {
+                    $('#price-search').hide();
+                }
+                $('#category').selectpicker("refresh");
+                $('#type').selectpicker("refresh");
             }
         }
     });
@@ -84,7 +98,8 @@ var getSubCategories = function (event) {
         success: function (data, textstatus) {
             var target = $('#subcategory').selectpicker();
             target.empty();
-            for (var i = 0; i < data.length; i++) {
+            console.log(categoryQuery + data.length);
+            for (var i = data.length - 1; i >= 0; i--) {
                 var newitemnum = i;
                 var newitemdesc = data[i].Name;
                 target.append('<option value="' + newitemdesc + '" selected="">' + newitemdesc + '</option>');

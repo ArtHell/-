@@ -58,9 +58,23 @@ namespace Doshka.Controllers
             ViewBag.UserId = HttpContext.User.Identity.GetUserId();
             var pages = await Search.GetAds(searchString, minPrice, maxPrice, type, category, subCategory);
             ViewBag.searchString = searchString;
+            var categories = db.Categories.ToList();
+            categories.Reverse(0, categories.Count);
+            ViewBag.CategoryList = categories;
+            return PartialView("RenderAds", pages);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<PartialViewResult> UpdateAds(string searchString, string minPrice, string maxPrice,
+            string type, string category, string subCategory)
+        {
+            ViewBag.UserId = HttpContext.User.Identity.GetUserId();
+            var pages = await Search.GetAds(searchString, minPrice, maxPrice, type, category, subCategory);
+            ViewBag.searchString = searchString;
             ViewBag.CategoryList = db.Categories.ToList();
             ViewBag.subCategoriesList = db.SubCategories.Where(x => x.Name == subCategory).ToList();
-            return PartialView("RenderAds", pages);
+            return PartialView("UpdateAds", pages);
         }
 
         /// <summary>

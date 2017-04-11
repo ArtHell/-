@@ -33,7 +33,7 @@ namespace Doshka.Services
             }
             if (!String.IsNullOrEmpty(maxPrice))
             {
-                ads = ads.Where(x => x.Price > Convert.ToDecimal(maxPrice)).ToList();
+                ads = ads.Where(x => x.Price < Convert.ToDecimal(maxPrice)).ToList();
             }
             if (!String.IsNullOrEmpty(type))
             {

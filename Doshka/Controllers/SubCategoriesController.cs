@@ -11,12 +11,12 @@ namespace Doshka.Controllers
     {
         private readonly ApplicationDbContext Db = new ApplicationDbContext();
 
+        [AllowAnonymous]
+        [HttpPost]
         public JsonResult GetSubCategories(string categoryName)
         {
             var category = Db.Categories.FirstOrDefault(x => x.Name == categoryName);
             var subCategoriesList = Db.SubCategories.Where(x => x.CategoryId == category.CategoryId);
-            ViewBag.SubCategoryList = subCategoriesList;
-
             return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
         }
     }

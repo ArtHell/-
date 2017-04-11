@@ -128,3 +128,11 @@ textarea {
     font-size: 11px;
     margin-bottom: -5px;
 }
+
+#ads-search {
+    display: none;
+}
+
+#price-search {
+    display: none;
+}

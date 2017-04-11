@@ -80,7 +80,7 @@ namespace Doshka.Migrations
             context.SubCategories.AddOrUpdate(new SubCategory()
             {                  
                 Name = "All subcategories",           
-                CategoryId = 0                          //No category
+                CategoryId = 14                          //No category
             }, new SubCategory()
             {               
                 Name = "Men's Clothing",
