@@ -122,6 +122,13 @@ textarea {
         margin: 0 -5% 0 2.8%;
     }
 
+    #search-field {
+        margin-left: 26%;    
+    }
+    
+}
+
+@media only screen and (max-width : 767px) {
     #search-field {  
         max-width: 86%;
         margin-top: 9px;  
