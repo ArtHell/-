@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using Doshka.Filters;
 
 namespace Doshka
 {
@@ -8,7 +9,8 @@ namespace Doshka
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new AuthorizeAttribute());
+            filters.Add(new CultureAttribute());
         }
     }
 }

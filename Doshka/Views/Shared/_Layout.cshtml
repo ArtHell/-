@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Resources
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@Resource.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -22,12 +24,12 @@
                 <span class="icon-bar"></span>
             </button>
             <input type="text" id="search-field" onchange="searchStringHandler();"
-                   class="form-control" placeholder="Search for..." name="searchString" /> 
+                   class="form-control" placeholder="@Resource.SearchFor" name="searchString" /> 
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Doshka", "Index", "Ads")</li>
-                <li>@Html.ActionLink("Create ad", "Create", "Ads")</li>
+                <li>@Html.ActionLink(Resource.Title, "Index", "Ads")</li>
+                <li>@Html.ActionLink(Resource.CreateAd, "Create", "Ads")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
